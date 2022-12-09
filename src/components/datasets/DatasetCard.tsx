@@ -29,24 +29,32 @@ export default function DatasetCard({ dataset }: Props) {
         </Flex>
 
         <Stack>
-          <Heading size="sm">Description</Heading>
+          <Heading size="sm" as="u">
+            Dataset Description
+          </Heading>
           <Text noOfLines={3} minH="72px">
             {dataset.description}
           </Text>
         </Stack>
 
         <Flex justify="space-between" align="center">
-          <Heading size="sm">Cost Per Record</Heading>
+          <Heading size="sm" as="u">
+            Cost Per Record
+          </Heading>
           <Text>${dataset.costPerRecord}</Text>
         </Flex>
 
         <Flex justify="space-between" align="center">
-          <Heading size="sm">Available Records</Heading>
+          <Heading size="sm" as="u">
+            Available Records
+          </Heading>
           <DatasetRecords datasetId={dataset.id} />
         </Flex>
 
         <Stack>
-          <Heading size="sm">Included countries</Heading>
+          <Heading size="sm" as="u">
+            Included countries
+          </Heading>
           <IncludedCountries datasetId={dataset.id} />
         </Stack>
       </Stack>

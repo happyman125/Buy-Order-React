@@ -17,5 +17,5 @@ export default function DatasetRecords({ datasetId }: Props) {
       country.storedData.filter((data) => data.datasetId === datasetId)
     )
     .reduce((result, item) => result + item.recordCount, 0)
-  return <Text>{availableRecords}</Text>
+  return <Text>{availableRecords} records</Text>
 }

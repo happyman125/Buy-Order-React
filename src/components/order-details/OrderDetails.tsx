@@ -23,35 +23,45 @@ export default function OrderDetailsForm({isLoading, order, onEdit, onDelete}: P
   return (
     <Flex gap="10" flexWrap="wrap">
       <Stack w="348px">
-        <Heading size="sm">Order Name</Heading>
+        <Heading size="sm" as="u">
+          Order Name
+        </Heading>
         <Skeleton h="6" isLoaded={!isLoading}>
           <Text>{order?.name}</Text>
         </Skeleton>
       </Stack>
 
       <Stack w="348px">
-        <Heading size="sm">Date Created</Heading>
+        <Heading size="sm" as="u">
+          Date Created
+        </Heading>
         <Skeleton h="6" isLoaded={!isLoading}>
           <Text>{moment(order?.createdAt).format('L')}</Text>
         </Skeleton>
       </Stack>
 
       <Stack w="348px">
-        <Heading size="sm">Budget</Heading>
+        <Heading size="sm" as="u">
+          Order Budget
+        </Heading>
         <Skeleton isLoaded={!isLoading}>
           <Text>${order?.budget}</Text>
         </Skeleton>
       </Stack>
 
       <Stack w="full">
-        <Heading size="sm">Included datasets</Heading>
+        <Heading size="sm" as="u">
+          Included datasets
+        </Heading>
         <Skeleton isLoaded={!isLoading}>
           <OrderDatasets order={order} />
         </Skeleton>
       </Stack>
 
       <Stack w="full">
-        <Heading size="sm">Included countries</Heading>
+        <Heading size="sm" as="u">
+          Included countries
+        </Heading>
         <Skeleton isLoaded={!isLoading}>
           <OrderCountries order={order} />
         </Skeleton>

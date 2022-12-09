@@ -21,17 +21,23 @@ export default function OrderCard({ order }: Props) {
     >
       <Flex>
         <Stack flex={1}>
-          <Heading size="sm">Order Name</Heading>
+          <Heading size="sm" as="u">
+            Order Name
+          </Heading>
           <Text>{order.name}</Text>
         </Stack>
 
         <Stack flex={1}>
-          <Heading size="sm">Date Created</Heading>
+          <Heading size="sm" as="u">
+            Date Created
+          </Heading>
           <Text>{moment(order.createdAt).format('L')}</Text>
         </Stack>
 
         <Stack flex={1}>
-          <Heading size="sm">Budget</Heading>
+          <Heading size="sm" as="u">
+            Budget
+          </Heading>
           <Text>${order.budget}</Text>
         </Stack>
       </Flex>

@@ -6,8 +6,11 @@ import {
   InputGroup,
   InputLeftElement,
   Stack,
+  Skeleton,
+  Text,
 } from '@chakra-ui/react'
 import { useForm, Controller } from 'react-hook-form'
+import moment from 'moment'
 
 import { OrderType } from '../../types'
 import SelectOrderDatasets from './SelectOrderDatasets'
@@ -33,13 +36,26 @@ export default function OrderEditForm(props: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Flex gap="10" flexWrap="wrap">
-        <Stack w="full">
-          <Heading size="sm">Order Name</Heading>
-          <Input {...register('name')} w="50%" disabled={isLoading} />
+        <Stack w="348px">
+          <Heading size="sm" as="u">
+            Order Name
+          </Heading>
+          <Input {...register('name')} w="full" disabled={isLoading} />
+        </Stack>
+
+        <Stack w="348px">
+          <Heading size="sm" as="u">
+            Date Created
+          </Heading>
+          <Skeleton h="6" isLoaded={!isLoading}>
+            <Text>{moment(order?.createdAt).format('L')}</Text>
+          </Skeleton>
         </Stack>
 
         <Stack w="full">
-          <Heading size="sm">Budget</Heading>
+          <Heading size="sm" as="u">
+            Order Budget
+          </Heading>
           <InputGroup w="50%">
             <InputLeftElement children="$" />
             <Input {...register('budget')} type="number" disabled={isLoading} />
@@ -47,7 +63,9 @@ export default function OrderEditForm(props: Props) {
         </Stack>
 
         <Stack w="full">
-          <Heading size="sm">Included datasets</Heading>
+          <Heading size="sm" as="u">
+            Included datasets
+          </Heading>
           <Controller
             control={control}
             name="datasetIds"
@@ -58,7 +76,9 @@ export default function OrderEditForm(props: Props) {
         </Stack>
 
         <Stack w="full">
-          <Heading size="sm">Included countries</Heading>
+          <Heading size="sm" as="u">
+            Included countries
+          </Heading>
           <Controller
             control={control}
             name="countries"

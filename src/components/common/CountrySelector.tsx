@@ -21,7 +21,9 @@ export default function CountrySelector() {
       p="6"
       borderRadius="lg"
     >
-      <Heading size="sm">Included countries</Heading>
+      <Heading size="sm" as="u">
+        Included countries
+      </Heading>
       <Skeleton isLoaded={!isLoading} borderRadius="full">
         <Flex gap="3" flexWrap="wrap" minH="8">
           {countries?.map((country) => (
